@@ -4,6 +4,9 @@
 
 #table {
   display: flex;
+  /* height: 300px;
+  width: 210px;
+  overflow: scroll; */
 }
 
 #table ul {

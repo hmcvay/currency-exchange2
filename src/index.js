@@ -16,9 +16,9 @@ function getElements(response) {
     let ratesArray = Object.values(response.conversion_rates);
     for (let i = 0; i < 161; i++) {
       const currency = currenciesArray[i];
-      const rate = ratesArray[i];
+      const rate = Math.round(ratesArray[i] * 100) / 100;
       $("ul#currency").append(`<li>${currency}</li>`);
-      $("ul#rate").append(`<li>${rate}</li>`);
+      $("ul#rate").append(`<li>$${rate}</li>`);
     }
   } else {
     $(".showErrors").text(`There was an error: ${response}`);
