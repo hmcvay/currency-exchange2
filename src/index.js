@@ -9,17 +9,22 @@ async function makeApiCall() {
   console.log(response);
 }
 
-// let currencyArray = [];
+let currencyArray = [];
 
 function getElements(response) {
   if (response) {
-    $(".showResponse").text(response);    
+    for (let i = 0; i < 171; i++) {
+      const currency = response.conversion_rates[i];
+      currencyArray.push(currency);
+    }
+    $(".showResponse").text(currencyArray);    
   } else {
     $(".showErrors").text(`There was an error: ${response}`);
   }
 }
 
 makeApiCall();
+console.log(currencyArray);
 
 // $(document).ready(function() {
 //   let currency = "";
