@@ -27,6 +27,15 @@ function getElements(response) {
   }
 }
 
+$(document).ready(function () {
+  // let currency = "";
+  makeApiCall();
+  $("#convert").click(function () {
+    let inputAmount = $("#input-value").val();
+  })
+
+});
+
 // async function makeApiCall2() {
 //   const response = await Currency.getExchange(convertTo, amount);
 //   getExchange(response);
@@ -40,10 +49,5 @@ function getElements(response) {
 //   }
 // }
 
-makeApiCall();
 
-// $(document).ready(function() {
-//   let currency = "";
-//   makeApiCall(currency);
-//   console.log(currencyArray);
-// });
+
