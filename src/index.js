@@ -8,28 +8,18 @@ async function makeApiCall() {
   getElements(response);
 }
 
-let currenciesArray = [];
-let ratesArray = [];
-
 function getElements(response) {
   if (response) {
-    const multArray = [];
     $("ul#currency").append(`<li>Currency</li>`);
     $("ul#rate").append(`<li>Conversion Rate</li>`);
-    for (let i = 0; i < 171; i++) {
-      const currency = response.conversion_rates[i];
-      const rate = response.conversion_rates[i]+1;
+    let currenciesArray = Object.keys(response.conversion_rates);
+    let ratesArray = Object.values(response.conversion_rates);
+    for (let i = 0; i < 161; i++) {
+      const currency = currenciesArray[i];
+      const rate = ratesArray[i];
       $("ul#currency").append(`<li>${currency}</li>`);
       $("ul#rate").append(`<li>${rate}</li>`);
-      multArray.push([currency, rate]);
-      currenciesArray.push(currency);
-      ratesArray.push(rate);
-    // Object.entries(response.conversion_rates).forEach((entry) => {
-    //   const [key, value] = entry;
-    //   currenciesArray.push(entry);
-    //   console.log(currenciesArray);
     }
-    
   } else {
     $(".showErrors").text(`There was an error: ${response}`);
   }
