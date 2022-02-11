@@ -25,6 +25,19 @@ function getElements(response) {
   }
 }
 
+async function makeApiCall2() {
+  const response = await Currency.getExchange(convertTo, amount);
+  getExchange(response);
+}
+
+function getExchange(response) {
+  if (response){
+
+  } else {
+    
+  }
+}
+
 makeApiCall();
 
 // $(document).ready(function() {
