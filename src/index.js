@@ -2,6 +2,7 @@
 import $ from "jquery";
 import "./css/styles.css";
 import Currency from "./js/currency.js";
+// import Exchange from "./js/currency.js";
 
 async function makeApiCall() {
   const response = await Currency.getCurrency();
@@ -19,7 +20,7 @@ function getElements(response) {
       const rate = Math.round(ratesArray[i] * 100) / 100;
       $("ul#currency").append(`<li>${currency}</li>`);
       $("ul#rate").append(`<li>$${rate}</li>`);
-      $("select#curr-to").append(`<option>${currency}</option>`);
+      $("select#curr-to").append(`<option value=${rate}>${currency}</option>`);
     }
   } else {
     $(".showErrors").text(`There was an error: ${response}`);
