@@ -19,24 +19,25 @@ function getElements(response) {
       const rate = Math.round(ratesArray[i] * 100) / 100;
       $("ul#currency").append(`<li>${currency}</li>`);
       $("ul#rate").append(`<li>$${rate}</li>`);
+      $("select#curr-to").append(`<option>${currency}</option>`);
     }
   } else {
     $(".showErrors").text(`There was an error: ${response}`);
   }
 }
 
-async function makeApiCall2() {
-  const response = await Currency.getExchange(convertTo, amount);
-  getExchange(response);
-}
+// async function makeApiCall2() {
+//   const response = await Currency.getExchange(convertTo, amount);
+//   getExchange(response);
+// }
 
-function getExchange(response) {
-  if (response){
+// function getExchange(response) {
+//   if (response){
+//    let currencyNameArray = Object.keys(response.conversion_rates);
+//   } else {
 
-  } else {
-    
-  }
-}
+//   }
+// }
 
 makeApiCall();
 
