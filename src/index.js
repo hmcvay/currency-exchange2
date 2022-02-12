@@ -4,11 +4,6 @@ import "./css/styles.css";
 import Currency from "./js/currency.js";
 // import Exchange from "./js/currency.js";
 
-async function makeApiCall() {
-  const response = await Currency.getCurrency();
-  getElements(response);
-}
-
 function getElements(response) {
   if (response) {
     $("ul#currency").append(`<li>Currency</li>`);
@@ -27,12 +22,21 @@ function getElements(response) {
   }
 }
 
+async function makeApiCall() {
+  const response = await Currency.getCurrency();
+  getElements(response);
+}
+
 $(document).ready(function () {
-  // let currency = "";
   makeApiCall();
   $("#convert").click(function () {
-    let inputAmount = $("#input-value").val();
-  })
+    $("#convert-to-currency").empty();
+    let inputAmount = $("#input-amount").val();
+    let convertTo = $("select#curr-to option").val();
+    let convertedAmount = inputAmount * convertTo;
+    $("#convert-to-currency").text(convertedAmount);
+    console.log(convertTo);
+  });
 
 });
 
