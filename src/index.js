@@ -1,8 +1,7 @@
 
 import $ from "jquery";
 import "./css/styles.css";
-import Currency from "./js/currency.js";
-// import Exchange from "./js/currency.js";
+import Currency from "./js/currency-service.js";
 
 function getElements(response) {
   if (response) {
@@ -18,7 +17,7 @@ function getElements(response) {
       $("select#curr-to").append(`<option value=${rate}>${currency}</option>`);
     }
   } else {
-    $(".showErrors").text(`There was an error: ${response}`);
+    $(".showErrors").text(`There was an error: ${response.result}`);
   }
 }
 
@@ -34,24 +33,14 @@ $(document).ready(function () {
     let inputAmount = $("#input-amount").val();
     let convertTo = $("select#curr-to > option:selected").val();
     let convertedAmount = inputAmount * convertTo;
-    $("#convert-to-currency").text("$" + convertedAmount);
-    console.log(convertTo);
+    if (convertedAmount === isNaN || undefined) {
+      $("#showErrors").text("Uh Oh, looks like that input ins't valid! Try again.");
+    } else {
+      $("#convert-to-currency").text("$" + convertedAmount);
+    }
   });
 
 });
-
-// async function makeApiCall2() {
-//   const response = await Currency.getExchange(convertTo, amount);
-//   getExchange(response);
-// }
-
-// function getExchange(response) {
-//   if (response){
-//    let currencyNameArray = Object.keys(response.conversion_rates);
-//   } else {
-
-//   }
-// }
 
 
 

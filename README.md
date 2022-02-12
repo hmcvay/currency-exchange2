@@ -32,7 +32,6 @@ This site allows users to view conversion rates of USD as well as input their ow
 * _Obtain a free API key by creating an account on [this](https://www.exchangerate-api.com/) site_
 * _Once your key has been obtained, store your key in a `.env` file in the top level of this directory_
 * _Save your API key in the .env as follows: `API_KEY=your-key-here`_
-### * _ensure that your .env file is included in your .gitignore file_
 * _Now you are ready to run `npm run start` to see the site in your browser_
 
 ## Known Bugs
