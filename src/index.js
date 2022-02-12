@@ -32,9 +32,9 @@ $(document).ready(function () {
   $("#convert").click(function () {
     $("#convert-to-currency").empty();
     let inputAmount = $("#input-amount").val();
-    let convertTo = $("select#curr-to option").val();
+    let convertTo = $("select#curr-to > option:selected").val();
     let convertedAmount = inputAmount * convertTo;
-    $("#convert-to-currency").text(convertedAmount);
+    $("#convert-to-currency").text("$" + convertedAmount);
     console.log(convertTo);
   });
 
