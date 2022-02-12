@@ -17,7 +17,7 @@ function getElements(response) {
       $("select#curr-to").append(`<option value=${rate}>${currency}</option>`);
     }
   } else {
-    $(".showErrors").text(`There was an error: ${response.result}`);
+    $(".showErrors").text(`Oops! Looks like there was an error: ${response.result}`);
   }
 }
 
@@ -34,7 +34,7 @@ $(document).ready(function () {
     let convertTo = $("select#curr-to > option:selected").val();
     let convertedAmount = inputAmount * convertTo;
     if (convertedAmount === isNaN || undefined) {
-      $("#showErrors").text("Uh Oh, looks like that input ins't valid! Try again.");
+      $("#showErrors").text("Uh Oh, it looks like that isn't ins't valid! Try again.");
     } else {
       $("#convert-to-currency").text("$" + convertedAmount);
     }
